@@ -38,10 +38,10 @@ Result NeuralNetworkSpecValidator::validateConvolutionLayer(const Specification:
 
     const auto& params = layer.convolution();
     bool is_deconv = params.isdeconvolution();
-    if (is_deconv && layer.input_size() != 1) {
-        std::string err = "Deconvolution Layer '" + layer.name() + "' does not support weight as input tensor.";
-        return Result(ResultType::INVALID_MODEL_PARAMETERS, err);
-    }
+   // if (is_deconv && layer.input_size() != 1) {
+    //    std::string err = "Deconvolution Layer '" + layer.name() + "' does not support weight as input tensor.";
+    //    return Result(ResultType::INVALID_MODEL_PARAMETERS, err);
+    //}
 
     if (layer.input_size() != 1 && (
         ((params.dilationfactor_size() > 0 && params.dilationfactor(0) > 1) ||
